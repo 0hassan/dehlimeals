@@ -9,16 +9,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Dehli Meals",
-          style: Theme.of(context).textTheme.headline2,
-          // style: TextStyle(
-          //   fontFamily: 'RobotoCondensed-Bold',
-          //   fontSize: 28,
-          // ),
-        ),
-      ),
       body: GridView(
         padding: const EdgeInsets.all(10),
         children: DUMMY_CATEGORIES

@@ -1,6 +1,7 @@
 import 'package:dehlimeals/screens/category_meals_screen.dart';
 import 'package:dehlimeals/screens/home_screen.dart';
 import 'package:dehlimeals/screens/meal_details_screeen.dart';
+import 'package:dehlimeals/screens/tab_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       // ignore: prefer_const_constructors
       initialRoute: '/',
       routes: {
-        '/': (context) => const HomeScreen(),
+        '/': (context) => const TabBarScreen(),
         Meals.routeAddress: (context) => const Meals(),
         MealDetails.routeName: (context) => const MealDetails(),
       },
