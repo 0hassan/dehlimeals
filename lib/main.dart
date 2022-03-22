@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // ignore: prefer_const_constructors
-
+      initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
         Meals.routeAddress: (context) => Meals(),
