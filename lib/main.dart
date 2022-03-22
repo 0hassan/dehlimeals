@@ -1,7 +1,6 @@
 import 'package:dehlimeals/screens/category_meals_screen.dart';
-import 'package:dehlimeals/widgets/category_item.dart';
+import 'package:dehlimeals/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'models/dummy_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dehli Meals',
       theme: ThemeData(
         canvasColor: const Color.fromARGB(253, 227, 231, 188),
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.cyan)
@@ -35,32 +34,9 @@ class MyApp extends StatelessWidget {
       ),
 
       // ignore: prefer_const_constructors
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            "Dehli Meals",
-            style: TextStyle(
-              fontFamily: 'RobotoCondensed-Bold',
-              fontSize: 28,
-            ),
-          ),
-        ),
-        body: GridView(
-          padding: const EdgeInsets.all(10),
-          children: DUMMY_CATEGORIES
-              .map(
-                (e) => CategoryItem(id: e.id, color: e.color, title: e.title),
-              )
-              .toList(),
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 220,
-            mainAxisSpacing: 10,
-            childAspectRatio: 3 / 2,
-            crossAxisSpacing: 10,
-          ),
-        ),
-      ),
+
       routes: {
+        '/': (context) => const HomeScreen(),
         Meals.routeAddress: (context) => Meals(),
       },
     );

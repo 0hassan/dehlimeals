@@ -5,14 +5,19 @@ import 'package:flutter/material.dart';
 class CategoryItem extends StatelessWidget {
   String id, title;
   Color color;
+
   CategoryItem(
       {Key? key, required this.id, required this.color, required this.title})
       : super(key: key);
+
   void newPage(context) {
-    Navigator.of(context).pushNamed(Meals.routeAddress, arguments: {
-      'id': id,
-      'title': title,
-    });
+    Navigator.of(context).pushNamed(
+      Meals.routeAddress,
+      arguments: {
+        'id': id,
+        'title': title,
+      },
+    );
   }
 
   @override
