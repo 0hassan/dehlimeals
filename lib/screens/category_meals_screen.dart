@@ -1,5 +1,4 @@
 import 'package:dehlimeals/models/dummy_data.dart';
-import 'package:dehlimeals/models/meal.dart';
 import 'package:dehlimeals/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +26,7 @@ class Meals extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           title!,
-          style: Theme.of(context).textTheme.headline1,
+          style: Theme.of(context).textTheme.headline2,
         ),
       ),
       body: ListView.builder(

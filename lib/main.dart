@@ -22,8 +22,9 @@ class MyApp extends StatelessWidget {
         textTheme: ThemeData.light().textTheme.copyWith(
               headline1: const TextStyle(
                 color: Colors.black,
+                fontWeight: FontWeight.bold,
                 fontFamily: 'RobotoCondenced-Bold',
-                fontSize: 28,
+                fontSize: 24,
                 //fontWeight: FontWeight.bold,
               ),
               headline2: const TextStyle(
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         '/': (context) => const HomeScreen(),
         Meals.routeAddress: (context) => Meals(),
         MealDetails.routeName: (context) => const MealDetails(),
+      },
+      onUnknownRoute: (RouteSettings settings) {
+        return MaterialPageRoute(builder: ((context) => HomeScreen()));
       },
     );
   }
