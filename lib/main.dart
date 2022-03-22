@@ -39,11 +39,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
-        Meals.routeAddress: (context) => Meals(),
+        Meals.routeAddress: (context) => const Meals(),
         MealDetails.routeName: (context) => const MealDetails(),
       },
       onUnknownRoute: (RouteSettings settings) {
-        return MaterialPageRoute(builder: ((context) => HomeScreen()));
+        return MaterialPageRoute(builder: ((context) => const HomeScreen()));
       },
     );
   }

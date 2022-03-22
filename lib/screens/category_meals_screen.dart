@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class Meals extends StatelessWidget {
   static const routeAddress = '/meals_screen';
+
+  const Meals({Key? key}) : super(key: key);
   // String title, id;
   // Meals({
   //   Key? key,
