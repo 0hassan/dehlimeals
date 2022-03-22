@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'meal.dart';
-import 'categoryObj.dart';
+import 'category_obj.dart';
 
 // ignore: non_constant_identifier_names
 final DUMMY_CATEGORIES = [
