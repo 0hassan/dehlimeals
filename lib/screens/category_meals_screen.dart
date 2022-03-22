@@ -1,5 +1,6 @@
 import 'package:dehlimeals/models/dummy_data.dart';
 import 'package:dehlimeals/models/meal.dart';
+import 'package:dehlimeals/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -31,8 +32,13 @@ class Meals extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: ((context, index) {
-          return Text(
-            categorieMeals[index].title,
+          return MealItem(
+            id: categorieMeals[index].id,
+            title: categorieMeals[index].title,
+            url: categorieMeals[index].imageUrl,
+            affordibility: categorieMeals[index].affordibility,
+            complexity: categorieMeals[index].complexity,
+            duration: categorieMeals[index].duration,
           );
         }),
         itemCount: categorieMeals.length,

@@ -1,5 +1,6 @@
 import 'package:dehlimeals/screens/category_meals_screen.dart';
 import 'package:dehlimeals/screens/home_screen.dart';
+import 'package:dehlimeals/screens/meal_details_screeen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeScreen(),
         Meals.routeAddress: (context) => Meals(),
+        MealDetails.routeName: (context) => const MealDetails(),
       },
     );
   }
