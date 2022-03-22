@@ -86,12 +86,12 @@ class MealDetails extends StatelessWidget {
   Widget buildSubTitle(BuildContext context, Widget child) {
     return Container(
       height: 190,
-      width: 400,
+      width: 380,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey),
       ),
-      margin: const EdgeInsets.all(0),
+      margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(6),
       child: child,
     );
