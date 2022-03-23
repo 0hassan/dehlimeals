@@ -44,7 +44,7 @@ class _MealsState extends State<Meals> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title!,
+          title,
           style: Theme.of(context).textTheme.headline2,
         ),
       ),
