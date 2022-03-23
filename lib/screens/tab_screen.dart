@@ -10,35 +10,43 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
+  final List<Widget> _pages = [
+    HomeScreen(),
+    FavoriteMealsScreen(),
+  ];
+  var _selectedscreenindex = 0;
+  void _ontapTabBar(int index) {
+    setState(() {
+      _selectedscreenindex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Dehli Meals",
-            style: Theme.of(context).textTheme.headline2,
-          ),
-          bottom: const TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.category),
-                text: "Categories",
-              ),
-              Tab(
-                icon: Icon(Icons.star),
-                text: "Favorite",
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Dehli Meals",
+          style: Theme.of(context).textTheme.headline2,
         ),
-        body: const TabBarView(
-          children: [
-            HomeScreen(),
-            FavoriteMealsScreen(),
-          ],
-        ),
+      ),
+      body: _pages[_selectedscreenindex],
+      bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).canvasColor,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        currentIndex: _selectedscreenindex,
+        onTap: _ontapTabBar,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: "Categories",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: "Favorite",
+          ),
+        ],
       ),
     );
   }
