@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         FiltersScreen.routeName: (context) => const FiltersScreen(),
       },
       onUnknownRoute: (RouteSettings settings) {
-        return MaterialPageRoute(builder: ((context) => HomeScreen()));
+        return MaterialPageRoute(builder: ((context) => const TabBarScreen()));
       },
     );
   }

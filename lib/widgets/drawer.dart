@@ -11,7 +11,7 @@ class DrawerWidget extends StatelessWidget {
   }
 
   ontapsettings(BuildContext context) {
-    Navigator.of(context).pushNamed(
+    Navigator.of(context).pushReplacementNamed(
       FiltersScreen.routeName,
     );
   }

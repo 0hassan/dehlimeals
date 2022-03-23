@@ -70,8 +70,17 @@ class MealDetails extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (() => Navigator.of(context).pop(id)),
+        child: const Icon(Icons.delete),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+      ),
     );
   }
+
+  // ontapoffab(BuildContext context) {
+
+  // }
 
   Widget buildTitle(BuildContext context, String title) {
     return Container(
