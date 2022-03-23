@@ -5,6 +5,7 @@ import '../widgets/category_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  static const routeName = '/HomeScreen';
 
   @override
   Widget build(BuildContext context) {

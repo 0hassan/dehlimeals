@@ -1,7 +1,9 @@
-import 'package:dehlimeals/screens/category_meals_screen.dart';
-import 'package:dehlimeals/screens/home_screen.dart';
-import 'package:dehlimeals/screens/meal_details_screeen.dart';
-import 'package:dehlimeals/screens/tab_screen.dart';
+import 'package:dehlimeals/screens/filters_screen.dart';
+
+import './screens/category_meals_screen.dart';
+import './screens/home_screen.dart';
+import './screens/meal_details_screeen.dart';
+import './screens/tab_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -42,9 +44,11 @@ class MyApp extends StatelessWidget {
         '/': (context) => const TabBarScreen(),
         Meals.routeAddress: (context) => const Meals(),
         MealDetails.routeName: (context) => const MealDetails(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
+        FiltersScreen.routeName: (context) => const FiltersScreen(),
       },
       onUnknownRoute: (RouteSettings settings) {
-        return MaterialPageRoute(builder: ((context) => const HomeScreen()));
+        return MaterialPageRoute(builder: ((context) => HomeScreen()));
       },
     );
   }

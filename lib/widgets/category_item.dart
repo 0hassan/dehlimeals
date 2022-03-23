@@ -25,12 +25,11 @@ class CategoryItem extends StatelessWidget {
     return InkWell(
       onTap: () => newPage(context),
       child: Container(
+        alignment: Alignment.centerLeft,
         padding: const EdgeInsets.all(15),
-        child: Center(
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.headline2,
-          ),
+        child: Text(
+          title,
+          style: Theme.of(context).textTheme.headline2,
         ),
         decoration: BoxDecoration(
           color: color,

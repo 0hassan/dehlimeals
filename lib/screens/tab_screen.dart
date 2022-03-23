@@ -1,5 +1,6 @@
 import 'package:dehlimeals/screens/favorite_screen.dart';
 import 'package:dehlimeals/screens/home_screen.dart';
+import 'package:dehlimeals/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabBarScreen extends StatefulWidget {
@@ -10,9 +11,15 @@ class TabBarScreen extends StatefulWidget {
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
-  final List<Widget> _pages = [
-    HomeScreen(),
-    FavoriteMealsScreen(),
+  final List<Map<String, dynamic>> _pages = [
+    {
+      'page': const HomeScreen(),
+      'title': 'Categories',
+    },
+    {
+      'page': const FavoriteMealsScreen(),
+      'title': 'Favorite Meals',
+    },
   ];
   var _selectedscreenindex = 0;
   void _ontapTabBar(int index) {
@@ -24,13 +31,14 @@ class _TabBarScreenState extends State<TabBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         title: Text(
-          "Dehli Meals",
+          _pages[_selectedscreenindex]['title'].toString(),
           style: Theme.of(context).textTheme.headline2,
         ),
       ),
-      body: _pages[_selectedscreenindex],
+      body: _pages[_selectedscreenindex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.white,
         selectedItemColor: Theme.of(context).canvasColor,
