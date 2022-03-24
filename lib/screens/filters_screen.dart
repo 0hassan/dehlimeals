@@ -1,26 +1,51 @@
 // ignore_for_file: use_function_type_syntax_for_parameters, avoid_types_as_parameter_names
-
 import 'package:dehlimeals/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FiltersScreen extends StatefulWidget {
   static const routeName = '/filterd_screen';
-  const FiltersScreen({Key? key}) : super(key: key);
+  Function saveChanges;
+  Map<String, bool> fillters;
+  FiltersScreen(
+    this.saveChanges,
+    this.fillters, {
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<FiltersScreen> createState() => _FiltersScreenState();
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
-  var _glutenfree = false;
-  var _lactosefree = false;
-  var _vegitarian = false;
-  var _vegan = false;
+  bool _glutenfree = false;
+  bool _lactosefree = false;
+  bool _vegitarian = false;
+  bool _vegan = false;
+  @override
+  void initState() {
+    _glutenfree = widget.fillters['gloten']!;
+    _lactosefree = widget.fillters['lactose']!;
+    _vegitarian = widget.fillters['vegetarian']!;
+    _vegan = widget.fillters['vegan']!;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () => widget.saveChanges({
+                    'gloten': _glutenfree,
+                    'lactose': _lactosefree,
+                    'vegetarian': _vegitarian,
+                    'vegan': _vegan,
+                  }),
+              icon: const Icon(Icons.save))
+        ],
         title: Text(
           'Settings',
           style: Theme.of(context).textTheme.headline1,
@@ -46,7 +71,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     setState(() {
                       _glutenfree = newValue;
                     });
-                    throw () {};
                   },
                 ),
                 switchlisttile(
@@ -57,7 +81,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     setState(() {
                       _lactosefree = newValue;
                     });
-                    throw () {};
                   },
                 ),
                 switchlisttile(
@@ -68,7 +91,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     setState(() {
                       _vegitarian = newValue;
                     });
-                    throw () {};
                   },
                 ),
                 switchlisttile(
@@ -79,7 +101,6 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     setState(() {
                       _vegan = newValue;
                     });
-                    throw () {};
                   },
                 ),
               ],
@@ -94,7 +115,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
     String title,
     String subtitile,
     var current,
-    Function newval(bool),
+    Function newval,
   ) {
     return SwitchListTile(
       //tileColor: Theme.of(context).colorScheme.secondary,
@@ -102,7 +123,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
       title: Text(title),
       subtitle: Text(subtitile),
       value: current,
-      onChanged: newval,
+      onChanged: (newwal) {
+        newval(newwal);
+      },
     );
   }
 }

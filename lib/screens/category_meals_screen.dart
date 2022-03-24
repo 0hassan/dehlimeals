@@ -1,4 +1,3 @@
-import 'package:dehlimeals/models/dummy_data.dart';
 import 'package:dehlimeals/widgets/meal_item.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +6,8 @@ import '../models/meal.dart';
 // ignore: must_be_immutable
 class Meals extends StatefulWidget {
   static const routeAddress = '/meals_screen';
-
-  const Meals({Key? key}) : super(key: key);
+  final List<Meal> availablemeals;
+  const Meals(this.availablemeals, {Key? key}) : super(key: key);
 
   @override
   State<Meals> createState() => _MealsState();
@@ -18,6 +17,7 @@ class _MealsState extends State<Meals> {
   late String title;
   late List<Meal> categorieMeals;
   var cheack = false;
+
   @override
   didChangeDependencies() {
     if (!cheack) {
@@ -25,7 +25,7 @@ class _MealsState extends State<Meals> {
           ModalRoute.of(context)!.settings.arguments as Map<String, String>;
       final id = routeArg['id'];
       title = routeArg['title']!;
-      categorieMeals = DUMMY_MEALS.where((element) {
+      categorieMeals = widget.availablemeals.where((element) {
         return element.categories.contains(id);
       }).toList();
       cheack = true;
@@ -57,7 +57,6 @@ class _MealsState extends State<Meals> {
             affordibility: categorieMeals[index].affordibility,
             complexity: categorieMeals[index].complexity,
             duration: categorieMeals[index].duration,
-            deleteitem: deleteItem,
           );
         }),
         itemCount: categorieMeals.length,

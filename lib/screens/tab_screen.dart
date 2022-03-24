@@ -1,27 +1,38 @@
+import 'package:dehlimeals/models/meal.dart';
 import 'package:dehlimeals/screens/favorite_screen.dart';
 import 'package:dehlimeals/screens/home_screen.dart';
 import 'package:dehlimeals/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class TabBarScreen extends StatefulWidget {
-  const TabBarScreen({Key? key}) : super(key: key);
+  const TabBarScreen(this.favoritelist, {Key? key}) : super(key: key);
+  final List<Meal> favoritelist;
 
   @override
   State<TabBarScreen> createState() => _TabBarScreenState();
 }
 
 class _TabBarScreenState extends State<TabBarScreen> {
-  final List<Map<String, dynamic>> _pages = [
-    {
-      'page': const HomeScreen(),
-      'title': 'Categories',
-    },
-    {
-      'page': const FavoriteMealsScreen(),
-      'title': 'Favorite Meals',
-    },
-  ];
+  late List<Map<String, dynamic>> _pages;
+
   var _selectedscreenindex = 0;
+
+  @override
+  void initState() {
+    _pages = [
+      {
+        'page': const HomeScreen(),
+        'title': 'Categories',
+      },
+      {
+        'page': FavoriteMealsScreen(widget.favoritelist),
+        'title': 'Favorite Meals',
+      },
+    ];
+
+    super.initState();
+  }
+
   void _ontapTabBar(int index) {
     setState(() {
       _selectedscreenindex = index;
